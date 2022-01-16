@@ -1,4 +1,4 @@
-# Knebula Builder
+# KNebula Builder
 
 KNebula repositories use the [mage](https://github.com/magefile/mage) build tool. This repository provides reusable build logic that provide consistent builds and the KNebula Build Tool (kbt) that can be used to manage build configuration files and run build commands.
 
