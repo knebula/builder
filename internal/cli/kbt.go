@@ -16,12 +16,13 @@ func NewKbtCmd() (*cobra.Command, error) {
 		Long:  l,
 	}
 
-	addInitCmd(kbtCmd, flags)
-	addInstallCmd(kbtCmd)
-	addBuildCmd(kbtCmd)
-	addTestCmd(kbtCmd)
-	addPackageCmd(kbtCmd)
-	addDeployCmd(kbtCmd)
-
+	kbtCmd.AddCommand(
+		newInitCmd(flags),
+		newInstallCmd(),
+		newBuildCmd(),
+		newTestCmd(),
+		newPackageCmd(),
+		newDeployCmd(),
+	)
 	return kbtCmd, nil
 }

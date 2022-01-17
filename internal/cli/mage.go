@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func addMageCmd(parent *cobra.Command, use, short, long string) *cobra.Command {
+func newMageCmd(use, short, long string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   use,
 		Short: short,
@@ -21,9 +21,6 @@ func addMageCmd(parent *cobra.Command, use, short, long string) *cobra.Command {
 			}
 			return nil
 		},
-	}
-	if parent != nil {
-		parent.AddCommand(cmd)
 	}
 	return cmd
 }

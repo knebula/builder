@@ -17,7 +17,7 @@ var (
 	workspaceTemplate = template.Must(template.New("").Parse(kbtTmpl))
 )
 
-func addInitCmd(rootCmd *cobra.Command, flags *flags) {
+func newInitCmd(flags *flags) *cobra.Command {
 	s := "Initialise a kbt repository"
 	l := "Initialise a kbt repository"
 
@@ -30,7 +30,7 @@ func addInitCmd(rootCmd *cobra.Command, flags *flags) {
 		},
 	}
 	flags.registerInit(cmd)
-	rootCmd.AddCommand(cmd)
+	return cmd
 }
 
 func generateWorkspaceFile(flags *flags) error {
