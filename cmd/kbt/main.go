@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/knebula/builder/internal/cli"
+	"github.com/magefile/mage/mg"
 )
 
 func main() {
@@ -14,6 +15,6 @@ func main() {
 		os.Exit(1)
 	}
 	if err := cmd.Execute(); err != nil {
-		os.Exit(1)
+		os.Exit(mg.ExitStatus(err))
 	}
 }

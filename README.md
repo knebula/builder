@@ -9,10 +9,10 @@ The KNebula Build Tool is a command line build tool. **kbt** is simplest to use 
 A typical user flow using **kbt** is as follows:
 
 - `kbt init`: initialises the repository to use **kbt**
-- `kbt build`: generates code and build executables
 - `kbt test`: runs all tests defined in the repository
-- `kbt package`: generates docker images
-- `kbt deploy`: deploys to a kubernetes cluster
+- `kbt build`: build cmds
+- `kbt package`: generates docker images for cmds
+- `kbt deploy`: deploys cmds to a kubernetes cluster
 
 With the exception of `kbt init`, all commands are proxies for **mage** targets. If you have **mage** installed you can replace `kbt` with `mage` in the above commands.
 
