@@ -23,7 +23,7 @@ type InitTestSuite struct {
 func (s *InitTestSuite) SetupTest() {
 	s.flags = newFlags()
 	s.factory = func() *cobra.Command {
-		return newInitCmd(s.flags)
+		return newInitCmd(s.flags, "")
 	}
 }
 

@@ -8,8 +8,10 @@ import (
 	"github.com/magefile/mage/mg"
 )
 
+const version = "v0.0.1"
+
 func main() {
-	cmd, err := cli.NewKbtCmd()
+	cmd, err := cli.NewKbtCmd(version)
 	if err != nil {
 		fmt.Printf("%v", err)
 		os.Exit(1)

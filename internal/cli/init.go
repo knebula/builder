@@ -15,7 +15,7 @@ const errorCode = 1
 
 var workspaceTemplate = template.Must(template.New("").Parse(kbtTmpl))
 
-func newInitCmd(flags *flags) *cobra.Command {
+func newInitCmd(flags *flags, version string) *cobra.Command {
 	s := "Initialise a kbt workspace"
 	l := "Initialise a kbt workspace"
 
@@ -24,14 +24,14 @@ func newInitCmd(flags *flags) *cobra.Command {
 		Short: s,
 		Long:  l,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return initWorkspace(flags)
+			return initWorkspace(flags, version)
 		},
 	}
 	flags.registerInit(cmd)
 	return cmd
 }
 
-func initWorkspace(flags *flags) error {
+func initWorkspace(flags *flags, version string) error {
 	fp := filepath.Join(flags.dir, workspaceFile)
 	exists, err := workspaceFileExist(fp)
 	if err != nil {
@@ -48,7 +48,12 @@ func initWorkspace(flags *flags) error {
 	}
 	defer f.Close()
 
-	if err := workspaceTemplate.Execute(f, nil); err != nil {
+	tmplData := struct {
+		Version string
+	}{
+		Version: version,
+	}
+	if err := workspaceTemplate.Execute(f, tmplData); err != nil {
 		return workspaceInitialiseError(err)
 	}
 

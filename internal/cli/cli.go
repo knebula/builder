@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func NewKbtCmd() (*cobra.Command, error) {
+func NewKbtCmd(version string) (*cobra.Command, error) {
 	flags := newFlags()
 
 	s := "The KNebula Build Tool (kbt)"
@@ -17,7 +17,7 @@ func NewKbtCmd() (*cobra.Command, error) {
 	}
 
 	kbtCmd.AddCommand(
-		newInitCmd(flags),
+		newInitCmd(flags, version),
 		newInstallCmd(),
 		newBuildCmd(),
 		newTestCmd(),
