@@ -41,12 +41,6 @@ func (c *cmdProxy) execute() error {
 	return c.cmd.Execute()
 }
 
-func (c *cmdProxy) out(t *testing.T) string {
-	out, err := io.ReadAll(c.outb)
-	assert.NoError(t, err)
-	return string(out)
-}
-
 func (c *cmdProxy) error(t *testing.T) string {
 	out, err := io.ReadAll(c.errb)
 	assert.NoError(t, err)
