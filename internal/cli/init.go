@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"text/template"
 
+	"github.com/knebula/builder/internal/cli/tmpl"
+
 	"github.com/magefile/mage/mg"
 	"github.com/spf13/cobra"
 )
@@ -13,7 +15,7 @@ import (
 const workspaceFile = "kbt.go"
 const errorCode = 1
 
-var workspaceTemplate = template.Must(template.New("").Parse(kbtTmpl))
+var workspaceTemplate = template.Must(template.New("").Parse(tmpl.Kbt))
 
 func newInitCmd(flags *flags, version string) *cobra.Command {
 	s := "Initialise a kbt workspace"
