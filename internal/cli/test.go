@@ -6,5 +6,5 @@ func newTestCmd() *cobra.Command {
 	s := "Test a kbt repository"
 	l := "Test a kbt repository"
 
-	return newMageCmd("test", s, l)
+	return newMageCmd("test", s, l, "")
 }

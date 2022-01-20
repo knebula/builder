@@ -8,13 +8,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func newMageCmd(use, short, long string) *cobra.Command {
+func newMageCmd(use, short, long, target string) *cobra.Command {
+	if target == "" {
+		target = use
+	}
 	cmd := &cobra.Command{
 		Use:   use,
 		Short: short,
 		Long:  long,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			args = append([]string{use}, args...)
+			args = append([]string{target}, args...)
 			code := mage.ParseAndRun(os.Stdout, os.Stderr, os.Stdin, args)
 			if code != 0 {
 				return mg.Fatal(code, args)

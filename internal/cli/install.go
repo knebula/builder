@@ -6,5 +6,5 @@ func newInstallCmd() *cobra.Command {
 	s := "Deploy a kbt repository"
 	l := "Deploy a kbt repository"
 
-	return newMageCmd("install", s, l)
+	return newMageCmd("install", s, l, "")
 }

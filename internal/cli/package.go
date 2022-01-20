@@ -6,5 +6,5 @@ func newPackageCmd() *cobra.Command {
 	s := "Package a kbt repository"
 	l := "Package a kbt repository"
 
-	return newMageCmd("package", s, l)
+	return newMageCmd("package", s, l, "")
 }
